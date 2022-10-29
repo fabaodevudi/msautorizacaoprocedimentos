@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="02" author="Fabao">
+    <comment>Carga dados</comment>    
+    
+    <insert tableName="procedimento">
+            <column name="id_procedimento" valueNumeric="1"/>    
+	        <column name="nome" value="1234" />	       
+	</insert>
+	
+	<insert tableName="procedimento">
+            <column name="id_procedimento" valueNumeric="2"/>    
+	        <column name="nome" value="4567" />	     
+	</insert>
+	
+	<insert tableName="procedimento">
+            <column name="id_procedimento" valueNumeric="3"/>    
+	        <column name="nome" value="6789" />	     
+	</insert>
+	
+    <insert tableName="regra">
+            <column name="id_regra" valueNumeric="1"/>    
+	        <column name="id_procedimento" value="1" />
+	        <column name="idade" value="20" />
+	        <column name="sexo" value="M" />
+	</insert>
+	<insert tableName="regra">
+            <column name="id_regra" valueNumeric="2"/>    
+	        <column name="id_procedimento" value="2" />
+	        <column name="idade" value="20" />
+	        <column name="sexo" value="M" />
+	</insert>
+	<insert tableName="regra">
+            <column name="id_regra" valueNumeric="3"/>    
+	        <column name="id_procedimento" value="3" />
+	        <column name="idade" value="10" />
+	        <column name="sexo" value="M" />
+	</insert>
+	<insert tableName="regra">
+            <column name="id_regra" valueNumeric="4"/>    
+	        <column name="id_procedimento" value="2" />
+	        <column name="idade" value="30" />
+	        <column name="sexo" value="F" />
+	</insert>
+	
+	<insert tableName="beneficiario">
+            <column name="id_beneficiario" valueNumeric="1"/>    
+            <column name="idade" value="30" />
+	        <column name="nome" value="Ana" />
+	        <column name="cpf" value="60119651231" />
+	        <column name="sexo" value="F" />
+	</insert>
+	<insert tableName="beneficiario">
+            <column name="id_beneficiario" valueNumeric="2"/>    
+            <column name="idade" value="10" />
+	        <column name="nome" value="João" />
+	        <column name="cpf" value="70112651631" />
+	        <column name="sexo" value="M" />
+	</insert>
+	<insert tableName="beneficiario">
+	        <column name="id_beneficiario" valueNumeric="3"/>    
+            <column name="idade" value="20" />
+	        <column name="nome" value="Fabao" />
+	        <column name="cpf" value="15076423187" />
+	        <column name="sexo" value="M" />
+	</insert>
+	<insert tableName="beneficiario">
+	        <column name="id_beneficiario" valueNumeric="4"/>    
+            <column name="idade" value="20" />
+	        <column name="nome" value="Ricardao" />
+	        <column name="cpf" value="07474748690" />
+	        <column name="sexo" value="M" />
+	</insert>
+
+
+  </changeSet>
+</databaseChangeLog>

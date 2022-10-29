@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="01" author="Fabao">
+		<createTable tableName="procedimento">
+			<column name="id_procedimento" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="nome" type="varchar(100)">
+				<constraints nullable="false" unique="true"/>
+			</column>
+		</createTable>
+
+		<createTable tableName="regra">
+			<column name="id_regra" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="id_procedimento" type="int">
+				<constraints nullable="false" unique="false" />
+			</column>
+			<column name="idade" type="INTEGER">
+				<constraints nullable="false" />
+			</column>
+			<column name="sexo" type="varchar(1)">
+				<constraints nullable="false" />
+			</column>
+		
+		</createTable>
+		<addForeignKeyConstraint
+			baseColumnNames="id_procedimento" baseTableName="regra"
+			referencedTableName="procedimento" constraintName="procedimento_fk"
+			referencedColumnNames="id_procedimento" />
+
+		<createTable tableName="beneficiario">
+			<column name="id_beneficiario" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="nome" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="cpf" type="varchar(11)">
+				<constraints nullable="false" unique="true" />
+			</column>
+			<column name="idade" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="sexo" type="varchar(1)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<createTable tableName="autorizacao">
+			<column name="id_autorizacao" type="int" autoIncrement="true">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="id_procedimento" type="int">
+				<constraints nullable="false" unique="false" />
+			</column>			
+			<column name="status" type="varchar(1)">
+				<constraints nullable="false" />
+			</column>
+			<column name="data_autorizacao" type="date">
+				<constraints nullable="false" />
+			</column>			
+		</createTable>
+		<addForeignKeyConstraint
+			baseColumnNames="id_procedimento" baseTableName="autorizacao"
+			referencedTableName="procedimento" constraintName="autorizacao_fk"
+			referencedColumnNames="id_procedimento" />
+	</changeSet>
+</databaseChangeLog>
