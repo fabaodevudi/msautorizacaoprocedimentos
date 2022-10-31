@@ -1,8 +1,7 @@
 package com.fabao.operadora.saude.dto;
 
-import java.util.Date;
-
 import com.fabao.operadora.saude.entity.Autorizacao;
+import com.fabao.operadora.saude.utils.DataUtil;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,7 @@ public class AutorizacaoDTO {
 	
 	private String nomeProcedimento;
 	
-	private Date dataAutorizacao;
+	private String dataAutorizacao;
 	
 	
 	public static AutorizacaoDTO fromEntity(Autorizacao entity) {
@@ -25,7 +24,7 @@ public class AutorizacaoDTO {
 		dto.setCpf(entity.getBeneficiario().getCpf());
 		dto.setNomeBeneficiario(entity.getBeneficiario().getNome());
 		dto.setNomeProcedimento(entity.getProcedimento().getNome());
-		dto.setDataAutorizacao(entity.getDataAutorizacao());
+		dto.setDataAutorizacao(DataUtil.converterDateToString(entity.getDataAutorizacao(), "dd/MM/yyyy"));
 		return dto;
 	}	
 

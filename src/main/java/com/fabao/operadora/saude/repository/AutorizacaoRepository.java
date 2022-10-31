@@ -1,11 +1,9 @@
 package com.fabao.operadora.saude.repository;
 
+import com.fabao.operadora.saude.entity.Autorizacao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.fabao.operadora.saude.entity.Autorizacao;
-
 @Repository
-public interface AutorizacaoRepository extends CrudRepository<Autorizacao, Integer> {
-	
+public interface AutorizacaoRepository extends CrudRepository<Autorizacao, Integer>, AutorizacaoRepositoryCustom {
 }

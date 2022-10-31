@@ -1,6 +1,10 @@
 package com.fabao.operadora.saude.exception;
 
-public class ProcedimentoException extends Exception  {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class ProcedimentoException extends RuntimeException  {
 	
 	private static final long serialVersionUID = 3837982804180390821L;
 
